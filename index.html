@@ -27,18 +27,11 @@
             content="Building a future where code knows how to think"
         />
         <meta property="og:type" content="website" />
-        <meta
-            property="og:url"
-            content="https://goloveshko.github.io"
-        />
+        <meta property="og:url" content="https://goloveshko.github.io" />
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
             rel="stylesheet"
@@ -65,233 +58,25 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         />
 
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/styles.css" />
+
         <!-- Favicon -->
         <link
             rel="icon"
             href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
         />
-
-        <style>
-            /* Smooth scroll */
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Custom scrollbar */
-            ::-webkit-scrollbar {
-                width: 8px;
-            }
-            ::-webkit-scrollbar-track {
-                background: #0f172a;
-            }
-            ::-webkit-scrollbar-thumb {
-                background: #334155;
-                border-radius: 4px;
-            }
-            ::-webkit-scrollbar-thumb:hover {
-                background: #475569;
-            }
-
-            /* Glass effect */
-            .glass {
-                background: rgba(255, 255, 255, 0.03);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .glass:hover {
-                background: rgba(255, 255, 255, 0.06);
-                border-color: rgba(255, 255, 255, 0.15);
-                transform: translateY(-4px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            }
-
-            body {
-                background-color: #0f172a;
-                color: #f8fafc;
-                font-family: "Inter", sans-serif;
-                overflow-x: hidden;
-            }
-
-            /* Animated gradient background */
-            .bg-gradient-animated {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                background: 
-                    radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 20%, rgba(52, 211, 153, 0.05) 0%, transparent 50%);
-                animation: bgShift 20s ease-in-out infinite;
-            }
-
-            @keyframes bgShift {
-                0%, 100% {
-                    transform: translate(0, 0);
-                }
-                25% {
-                    transform: translate(-20px, -20px);
-                }
-                50% {
-                    transform: translate(20px, 10px);
-                }
-                75% {
-                    transform: translate(-10px, 20px);
-                }
-            }
-
-            /* Floating particles */
-            .particle {
-                position: fixed;
-                background: rgba(255, 255, 255, 0.02);
-                border-radius: 50%;
-                pointer-events: none;
-                animation: float linear infinite;
-            }
-
-            @keyframes float {
-                0% {
-                    transform: translateY(100vh) rotate(0deg);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                }
-                90% {
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-100vh) rotate(720deg);
-                    opacity: 0;
-                }
-            }
-
-            /* Language toggle */
-            .lang-ru {
-                display: none;
-            }
-
-            /* AI Gradient text */
-            .ai-gradient {
-                background: linear-gradient(
-                    135deg,
-                    #60a5fa 0%,
-                    #34d399 50%,
-                    #a78bfa 100%
-                );
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-
-            /* Scroll animations */
-            .fade-in-up {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .fade-in-up.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* Stagger delays */
-            .delay-100 { transition-delay: 100ms; }
-            .delay-200 { transition-delay: 200ms; }
-            .delay-300 { transition-delay: 300ms; }
-
-            /* Button hover glow */
-            .btn-glow {
-                position: relative;
-                overflow: hidden;
-                transition: all 0.3s ease;
-            }
-            .btn-glow::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 0;
-                height: 0;
-                background: rgba(96, 165, 250, 0.3);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                transition: width 0.6s ease, height 0.6s ease;
-            }
-            .btn-glow:hover::before {
-                width: 300px;
-                height: 300px;
-            }
-
-            /* Tech stack icon hover */
-            .tech-icon {
-                transition: all 0.3s ease;
-            }
-            .tech-icon:hover {
-                transform: translateY(-6px) scale(1.1);
-                color: #60a5fa;
-            }
-
-            /* Navigation dots */
-            .nav-dots {
-                position: fixed;
-                right: 2rem;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 40;
-                display: flex;
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            .nav-dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.2);
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            .nav-dot:hover,
-            .nav-dot.active {
-                background: #60a5fa;
-                transform: scale(1.5);
-            }
-
-            @media (max-width: 768px) {
-                .nav-dots {
-                    display: none;
-                }
-            }
-
-            /* Loading animation for hero */
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            .hero-animate {
-                animation: fadeIn 1s ease-out forwards;
-            }
-            .hero-animate-delay {
-                animation: fadeIn 1s ease-out 0.3s forwards;
-                opacity: 0;
-            }
-        </style>
     </head>
     <body class="transition-all duration-500">
         <!-- Animated Background -->
         <div class="bg-gradient-animated" aria-hidden="true"></div>
 
         <!-- Floating Particles -->
-        <div id="particles" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
+        <div
+            id="particles"
+            class="fixed inset-0 pointer-events-none z-0"
+            aria-hidden="true"
+        ></div>
 
         <!-- Navigation Dots -->
         <nav class="nav-dots" aria-label="Section navigation">
@@ -337,7 +122,9 @@
             class="min-h-screen flex flex-col justify-center items-center px-6 relative"
         >
             <div class="max-w-4xl text-center">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 ai-gradient hero-animate">
+                <h1
+                    class="text-5xl md:text-7xl font-bold mb-4 ai-gradient hero-animate"
+                >
                     Goloveshko
                 </h1>
 
@@ -374,7 +161,9 @@
                 </div>
 
                 <!-- Social Links -->
-                <div class="flex justify-center space-x-6 text-2xl hero-animate-delay">
+                <div
+                    class="flex justify-center space-x-6 text-2xl hero-animate-delay"
+                >
                     <a
                         href="https://github.com/goloveshko"
                         target="_blank"
@@ -393,6 +182,7 @@
                     >
                         <i class="fab fa-telegram"></i>
                     </a>
+					<!-- LinkedIn (временно скрыт до обновления профиля)
                     <a
                         href="https://linkedin.com/in/goloveshko"
                         target="_blank"
@@ -402,6 +192,7 @@
                     >
                         <i class="fab fa-linkedin"></i>
                     </a>
+					-->
                 </div>
             </div>
 
@@ -413,21 +204,31 @@
 
         <!-- Main Content -->
         <main class="max-w-5xl mx-auto px-6 pb-24">
-            <!-- Featured Project -->
+            <!-- Featured Projects -->
             <section id="projects" class="mb-24">
-                <h2 class="text-3xl font-bold mb-10 flex items-center fade-in-up">
+                <h2
+                    class="text-3xl font-bold mb-10 flex items-center fade-in-up"
+                >
                     <span class="lang-en">Projects & Research</span>
                     <span class="lang-ru">Проекты и исследования</span>
                     <div class="h-px flex-1 bg-slate-800 ml-6"></div>
                 </h2>
 
+                <!-- Project 1: ModeFlow -->
                 <div
                     class="glass p-8 rounded-3xl flex flex-col md:flex-row items-center gap-10 fade-in-up delay-100"
                 >
                     <div class="md:w-1/2">
                         <div class="relative group">
-                            <img src="https://raw.githubusercontent.com/goloveshko/ModeFlow/main/screenshots/light/main_window.png" alt="ModeFlow - Workspace Manager" class="rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500" loading="lazy" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                            <img
+                                src="images/projects/ModeFlow.png"
+                                alt="ModeFlow - Workspace Manager"
+                                class="rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+                                loading="lazy"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500"
+                            ></div>
                         </div>
                     </div>
                     <div class="md:w-1/2">
@@ -440,7 +241,11 @@
 
                         <div class="lang-en">
                             <p class="text-slate-300 mb-6 leading-relaxed">
-                                A lightweight, non-blocking Windows utility to orchestrate workspace profiles (displays, audio outputs, and application cascades) via global hotkeys. This project represents my foundation in high-performance systems engineering.
+                                A lightweight, non-blocking Windows utility to
+                                orchestrate workspace profiles (displays, audio
+                                outputs, and application cascades) via global
+                                hotkeys. This project represents my foundation
+                                in high-performance systems engineering.
                             </p>
                             <a
                                 href="https://github.com/goloveshko/ModeFlow"
@@ -454,7 +259,12 @@
 
                         <div class="lang-ru">
                             <p class="text-slate-300 mb-6 leading-relaxed">
-                                Легковесная утилита для Windows, предназначенная для мгновенного управления рабочими пространствами (экранами, аудиовыходами и автозапусками программ) с помощью горячих клавиш. Этот проект — фундамент моей экспертизы в системной разработке.
+                                Легковесная утилита для Windows, предназначенная
+                                для мгновенного управления рабочими
+                                пространствами (экранами, аудиовыходами и
+                                автозапусками программ) с помощью горячих
+                                клавиш. Этот проект — фундамент моей экспертизы
+                                в системной разработке.
                             </p>
                             <a
                                 href="https://github.com/goloveshko/ModeFlow"
@@ -462,7 +272,72 @@
                                 rel="noopener noreferrer"
                                 class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
                             >
-                                <i class="fab fa-github mr-2"></i>Посмотреть на GitHub
+                                <i class="fab fa-github mr-2"></i>Посмотреть на
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Fast Chrome Backup -->
+                <div
+                    class="glass p-8 rounded-3xl flex flex-col md:flex-row-reverse items-center gap-10 fade-in-up delay-200 mt-10"
+                >
+                    <div class="md:w-1/2">
+                        <div class="relative group">
+                            <img
+                                src="images/projects/fast-chrome-backup.png"
+                                alt="Fast Chrome Backup Terminal Demo"
+                                class="rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+                                loading="lazy"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-bold text-white mb-2">
+                            Fast Chrome Backup
+                        </h3>
+                        <p class="text-blue-400 font-mono text-sm mb-4">
+                            PowerShell • 7-Zip • Automation • CLI
+                        </p>
+
+                        <div class="lang-en">
+                            <p class="text-slate-300 mb-6 leading-relaxed">
+                                A high-speed, lightweight PowerShell utility for
+                                backing up Chrome profiles using 7-Zip. Features
+                                smart cache filtering (saving 90%+ space),
+                                graceful browser shutdown, auto-language
+                                detection, and zero-copy streaming.
+                            </p>
+                            <a
+                                href="https://github.com/goloveshko/fast-chrome-backup"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
+                            >
+                                <i class="fab fa-github mr-2"></i>View on GitHub
+                            </a>
+                        </div>
+
+                        <div class="lang-ru">
+                            <p class="text-slate-300 mb-6 leading-relaxed">
+                                Высокоскоростная утилита на PowerShell для
+                                бэкапа и восстановления профилей Chrome с
+                                помощью 7-Zip. Фильтрует гигабайты кэша (экономя
+                                90% места), безаварийно закрывает браузер,
+                                поддерживает 2 языка и работает за секунды.
+                            </p>
+                            <a
+                                href="https://github.com/goloveshko/fast-chrome-backup"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
+                            >
+                                <i class="fab fa-github mr-2"></i>Посмотреть на
+                                GitHub
                             </a>
                         </div>
                     </div>
@@ -480,7 +355,6 @@
                     <div
                         class="glass p-8 rounded-3xl border-blue-500/20 relative overflow-hidden group"
                     >
-                        <!-- Decorative glow effect -->
                         <div
                             class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition duration-700"
                         ></div>
@@ -488,7 +362,9 @@
                             class="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/10 blur-3xl rounded-full group-hover:bg-purple-500/20 transition duration-700"
                         ></div>
 
-                        <p class="text-xl text-white mb-4 font-semibold relative z-10">
+                        <p
+                            class="text-xl text-white mb-4 font-semibold relative z-10"
+                        >
                             Deep Learning & Intelligent Systems
                         </p>
                         <p class="text-slate-400 leading-relaxed relative z-10">
@@ -519,7 +395,9 @@
                             class="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/10 blur-3xl rounded-full group-hover:bg-purple-500/20 transition duration-700"
                         ></div>
 
-                        <p class="text-xl text-white mb-4 font-semibold relative z-10">
+                        <p
+                            class="text-xl text-white mb-4 font-semibold relative z-10"
+                        >
                             Глубокое обучение и интеллектуальные системы
                         </p>
                         <p class="text-slate-400 leading-relaxed relative z-10">
@@ -546,84 +424,131 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <!-- C++ -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fas fa-code text-3xl text-blue-400 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fas fa-code text-3xl text-blue-400 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">C++</p>
-                        <p class="text-xs text-slate-400 mt-1">Systems Programming</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Systems Programming
+                        </p>
                     </div>
 
                     <!-- Qt -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fas fa-window-maximize text-3xl text-emerald-400 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fas fa-window-maximize text-3xl text-emerald-400 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">Qt 6</p>
-                        <p class="text-xs text-slate-400 mt-1">Cross-platform UI</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Cross-platform UI
+                        </p>
                     </div>
 
                     <!-- Python -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fab fa-python text-3xl text-yellow-400 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fab fa-python text-3xl text-yellow-400 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">Python</p>
-                        <p class="text-xs text-slate-400 mt-1">AI & Automation</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            AI & Automation
+                        </p>
                     </div>
 
                     <!-- Machine Learning -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fas fa-brain text-3xl text-purple-400 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fas fa-brain text-3xl text-purple-400 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">ML / AI</p>
-                        <p class="text-xs text-slate-400 mt-1">Neural Networks</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Neural Networks
+                        </p>
                     </div>
 
                     <!-- Git -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fab fa-git-alt text-3xl text-orange-400 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fab fa-git-alt text-3xl text-orange-400 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">Git</p>
-                        <p class="text-xs text-slate-400 mt-1">Version Control</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Version Control
+                        </p>
                     </div>
 
                     <!-- Linux -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fab fa-linux text-3xl text-slate-300 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fab fa-linux text-3xl text-slate-300 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">Linux</p>
-                        <p class="text-xs text-slate-400 mt-1">Development Env</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Development Env
+                        </p>
                     </div>
 
                     <!-- Windows -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fab fa-windows text-3xl text-blue-500 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fab fa-windows text-3xl text-blue-500 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">Windows API</p>
-                        <p class="text-xs text-slate-400 mt-1">System Integration</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            System Integration
+                        </p>
                     </div>
 
                     <!-- Telegram Bot -->
                     <div class="glass p-6 rounded-2xl text-center">
-                        <i class="fab fa-telegram text-3xl text-blue-400 mb-3 tech-icon inline-block"></i>
+                        <i
+                            class="fab fa-telegram text-3xl text-blue-400 mb-3 tech-icon inline-block"
+                        ></i>
                         <p class="font-semibold">Telegram API</p>
-                        <p class="text-xs text-slate-400 mt-1">Bot Development</p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Bot Development
+                        </p>
                     </div>
                 </div>
             </section>
         </main>
 
         <!-- Footer -->
-        <footer
-            class="py-12 border-t border-slate-800/50"
-        >
+        <footer class="py-12 border-t border-slate-800/50">
             <div class="max-w-5xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-6"
+                >
                     <div class="text-center md:text-left">
                         <p class="font-semibold ai-gradient">Goloveshko</p>
                         <p class="text-sm text-slate-500 mt-1">
-                            <span class="lang-en">Building intelligent applications</span>
+                            <span class="lang-en"
+                                >Building intelligent applications</span
+                            >
                             <span class="lang-ru">Создаю умные приложения</span>
                         </p>
                     </div>
 
-                    <nav class="flex space-x-6 text-sm" aria-label="Footer navigation">
-                        <a href="https://github.com/goloveshko" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition tech-icon">
+                    <nav
+                        class="flex space-x-6 text-sm"
+                        aria-label="Footer navigation"
+                    >
+                        <a
+                            href="https://github.com/goloveshko"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-slate-400 hover:text-white transition tech-icon"
+                        >
                             <i class="fab fa-github mr-1"></i>
                             <span class="lang-en">GitHub</span>
                             <span class="lang-ru">GitHub</span>
                         </a>
-                        <a href="https://t.me/itz2bot?start=website" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition tech-icon">
+                        <a
+                            href="https://t.me/itz2bot?start=website"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-slate-400 hover:text-blue-400 transition tech-icon"
+                        >
                             <i class="fab fa-telegram mr-1"></i>
                             <span class="lang-en">Telegram</span>
                             <span class="lang-ru">Telegram</span>
@@ -631,110 +556,16 @@
                     </nav>
                 </div>
 
-                <div class="mt-8 pt-6 border-t border-slate-800/30 text-center text-sm text-slate-600">
+                <div
+                    class="mt-8 pt-6 border-t border-slate-800/30 text-center text-sm text-slate-600"
+                >
                     <p>© 2026 goloveshko.github.io</p>
                 </div>
             </div>
         </footer>
 
-        <script>
-            // Language toggle
-            let currentLang = "en";
-
-            function toggleLang() {
-                currentLang = currentLang === "en" ? "ru" : "en";
-
-                document
-                    .querySelectorAll(".lang-en")
-                    .forEach(
-                        (el) =>
-                            (el.style.display =
-                                currentLang === "en" ? "block" : "none"),
-                    );
-                document
-                    .querySelectorAll(".lang-ru")
-                    .forEach(
-                        (el) =>
-                            (el.style.display =
-                                currentLang === "ru" ? "block" : "none"),
-                    );
-
-                document.querySelector(".lang-text-en").style.display =
-                    currentLang === "en" ? "inline" : "none";
-                document.querySelector(".lang-text-ru").style.display =
-                    currentLang === "ru" ? "inline" : "none";
-            }
-
-            // Scroll to section
-            function scrollToSection(id) {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                }
-            }
-
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px",
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll(".fade-in-up").forEach((el) => {
-                observer.observe(el);
-            });
-
-            // Navigation dots active state
-            const sections = ["hero", "projects", "focus", "skills"];
-            const navDots = document.querySelectorAll(".nav-dot");
-
-            const sectionObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            const index = sections.indexOf(entry.target.id);
-                            navDots.forEach((dot, i) => {
-                                dot.classList.toggle("active", i === index);
-                            });
-                        }
-                    });
-                },
-                { threshold: 0.5 }
-            );
-
-            sections.forEach((id) => {
-                const el = document.getElementById(id);
-                if (el) sectionObserver.observe(el);
-            });
-
-            // Create floating particles
-            function createParticles() {
-                const container = document.getElementById("particles");
-                const particleCount = 20;
-
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement("div");
-                    particle.className = "particle";
-                    
-                    const size = Math.random() * 4 + 2;
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.animationDuration = `${Math.random() * 20 + 15}s`;
-                    particle.style.animationDelay = `${Math.random() * 10}s`;
-                    
-                    container.appendChild(particle);
-                }
-            }
-
-            createParticles();
-        </script>
+        <!-- Custom JS -->
+        <script src="js/main.js"></script>
+		<script src="js/local-dev.js" onerror="this.remove()"></script>
     </body>
 </html>
