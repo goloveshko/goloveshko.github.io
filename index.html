@@ -5,6 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Goloveshko | AI & Software Engineer</title>
 
+        <!-- Restore the saved language before first paint -->
+        <script>
+            try {
+                if (localStorage.getItem("lang") === "ru") {
+                    document.documentElement.classList.add("lang-ru");
+                    document.documentElement.setAttribute("lang", "ru");
+                }
+            } catch (e) {}
+        </script>
+
         <!-- SEO Meta Tags -->
         <meta
             name="description"
@@ -16,8 +26,10 @@
         />
         <meta name="author" content="Goloveshko" />
         <meta name="theme-color" content="#0f172a" />
+        <link rel="canonical" href="https://goloveshko.github.io/" />
 
         <!-- Open Graph -->
+        <meta property="og:site_name" content="Goloveshko" />
         <meta
             property="og:title"
             content="Goloveshko | AI & Software Engineer"
@@ -28,12 +40,53 @@
         />
         <meta
             property="og:image"
-            content="https://goloveshko.github.io/images/og-preview.png"
+            content="https://goloveshko.github.io/images/projects/og-preview.png"
         />
         <meta property="og:image:width" content="1500" />
         <meta property="og:image:height" content="788" />
+        <meta
+            property="og:image:alt"
+            content="Goloveshko — AI & Software Engineer"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://goloveshko.github.io" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="ru_RU" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Goloveshko | AI & Software Engineer"
+        />
+        <meta
+            name="twitter:description"
+            content="Building a future where code knows how to think"
+        />
+        <meta
+            name="twitter:image"
+            content="https://goloveshko.github.io/images/projects/og-preview.png"
+        />
+
+        <!-- Structured data (JSON-LD) -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Goloveshko",
+                "url": "https://goloveshko.github.io/",
+                "jobTitle": "Software Engineer",
+                "knowsAbout": [
+                    "C++",
+                    "Qt 6",
+                    "Python",
+                    "Machine Learning",
+                    "Neural Networks",
+                    "LLM"
+                ],
+                "sameAs": ["https://github.com/goloveshko"]
+            }
+        </script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,20 +96,8 @@
             rel="stylesheet"
         />
 
-        <!-- Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            sans: ["Inter", "sans-serif"],
-                            mono: ["JetBrains Mono", "monospace"],
-                        },
-                    },
-                },
-            };
-        </script>
+        <!-- Tailwind CSS v4 (built from css/input.css) -->
+        <link rel="stylesheet" href="css/tailwind.css" />
 
         <!-- Font Awesome -->
         <link
@@ -72,6 +113,21 @@
             rel="icon"
             href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
         />
+
+        <!-- No-JS fallback: show content, hide controls that won't work -->
+        <noscript>
+            <style>
+                .fade-in-up {
+                    opacity: 1 !important;
+                    transform: none !important;
+                }
+                .nav-dots,
+                .scroll-hint,
+                #lang-toggle {
+                    display: none !important;
+                }
+            </style>
+        </noscript>
     </head>
     <body class="transition-all duration-500">
         <!-- Animated Background -->
@@ -86,39 +142,42 @@
 
         <!-- Navigation Dots -->
         <nav class="nav-dots" aria-label="Section navigation">
-            <div
+            <button
+                type="button"
                 class="nav-dot active"
-                onclick="scrollToSection('hero')"
+                data-target="hero"
                 aria-label="Scroll to hero section"
-            ></div>
-            <div
+            ></button>
+            <button
+                type="button"
                 class="nav-dot"
-                onclick="scrollToSection('projects')"
+                data-target="projects"
                 aria-label="Scroll to projects section"
-            ></div>
-            <div
+            ></button>
+            <button
+                type="button"
                 class="nav-dot"
-                onclick="scrollToSection('focus')"
+                data-target="focus"
                 aria-label="Scroll to focus section"
-            ></div>
-            <div
+            ></button>
+            <button
+                type="button"
                 class="nav-dot"
-                onclick="scrollToSection('skills')"
+                data-target="skills"
                 aria-label="Scroll to skills section"
-            ></div>
+            ></button>
         </nav>
 
         <!-- Language Toggle -->
         <div class="fixed top-6 right-6 z-50">
             <button
+                id="lang-toggle"
                 onclick="toggleLang()"
                 class="glass px-4 py-2 rounded-full hover:bg-white/10 transition text-sm font-medium"
                 aria-label="Toggle language"
             >
                 <span class="lang-text-en">🇷🇺 Русский</span>
-                <span class="lang-text-ru" style="display: none"
-                    >🇺🇸 English</span
-                >
+                <span class="lang-text-ru">🇺🇸 English</span>
             </button>
         </div>
 
@@ -188,7 +247,7 @@
                     >
                         <i class="fab fa-telegram"></i>
                     </a>
-                    <!-- LinkedIn (временно скрыт до обновления профиля)
+                    <!-- LinkedIn (temporarily hidden until the profile is updated)
                     <a
                         href="https://linkedin.com/in/goloveshko"
                         target="_blank"
@@ -198,14 +257,19 @@
                     >
                         <i class="fab fa-linkedin"></i>
                     </a>
-					-->
+                    -->
                 </div>
             </div>
 
             <!-- Scroll indicator -->
-            <div class="absolute bottom-10 animate-bounce text-slate-500">
+            <button
+                type="button"
+                class="scroll-hint absolute bottom-10 animate-bounce text-slate-500 hover:text-slate-300 transition"
+                onclick="scrollToSection('projects')"
+                aria-label="Scroll to projects section"
+            >
                 <i class="fas fa-chevron-down"></i>
-            </div>
+            </button>
         </header>
 
         <!-- Main Content -->
@@ -215,9 +279,9 @@
                 <h2
                     class="text-3xl font-bold mb-10 flex items-center fade-in-up"
                 >
-                    <span class="lang-en">Projects & Research</span>
+                    <span class="lang-en">Projects &amp; Research</span>
                     <span class="lang-ru">Проекты и исследования</span>
-                    <div class="h-px flex-1 bg-slate-800 ml-6"></div>
+                    <span class="h-px flex-1 bg-slate-800 ml-6" aria-hidden="true"></span>
                 </h2>
 
                 <!-- Project 1: ModeFlow -->
@@ -226,15 +290,25 @@
                 >
                     <div class="md:w-1/2">
                         <div class="relative group">
-                            <img
-                                src="images/projects/ModeFlow.png"
-                                alt="ModeFlow - Workspace Manager"
-                                class="rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
-                                loading="lazy"
-                            />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500"
-                            ></div>
+                            <a
+                                href="https://github.com/goloveshko/ModeFlow"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="block"
+                                aria-label="ModeFlow repository on GitHub"
+                            >
+                                <img
+                                    src="images/projects/ModeFlow.png"
+                                    alt="ModeFlow - Workspace Manager"
+                                    width="815"
+                                    height="727"
+                                    class="w-full h-auto rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+                                    loading="lazy"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"
+                                ></div>
+                            </a>
                         </div>
                     </div>
                     <div class="md:w-1/2">
@@ -257,7 +331,7 @@
                                 href="https://github.com/goloveshko/ModeFlow"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
+                                class="btn-glow inline-block bg-linear-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
                             >
                                 <i class="fab fa-github mr-2"></i>View on GitHub
                             </a>
@@ -276,7 +350,7 @@
                                 href="https://github.com/goloveshko/ModeFlow"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
+                                class="btn-glow inline-block bg-linear-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
                             >
                                 <i class="fab fa-github mr-2"></i>Посмотреть на
                                 GitHub
@@ -291,15 +365,25 @@
                 >
                     <div class="md:w-1/2">
                         <div class="relative group">
-                            <img
-                                src="images/projects/fast-chrome-backup.png"
-                                alt="Fast Chrome Backup Terminal Demo"
-                                class="rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
-                                loading="lazy"
-                            />
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500"
-                            ></div>
+                            <a
+                                href="https://github.com/goloveshko/fast-chrome-backup"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="block"
+                                aria-label="Fast Chrome Backup repository on GitHub"
+                            >
+                                <img
+                                    src="images/projects/fast-chrome-backup.png"
+                                    alt="Fast Chrome Backup Terminal Demo"
+                                    width="1062"
+                                    height="762"
+                                    class="w-full h-auto rounded-xl shadow-2xl border border-white/10 hover:scale-105 transition duration-500"
+                                    loading="lazy"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"
+                                ></div>
+                            </a>
                         </div>
                     </div>
                     <div class="md:w-1/2">
@@ -322,7 +406,7 @@
                                 href="https://github.com/goloveshko/fast-chrome-backup"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
+                                class="btn-glow inline-block bg-linear-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
                             >
                                 <i class="fab fa-github mr-2"></i>View on GitHub
                             </a>
@@ -340,7 +424,7 @@
                                 href="https://github.com/goloveshko/fast-chrome-backup"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="btn-glow inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
+                                class="btn-glow inline-block bg-linear-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-blue-500/25 transition"
                             >
                                 <i class="fab fa-github mr-2"></i>Посмотреть на
                                 GitHub
@@ -354,12 +438,12 @@
             <section id="focus" class="max-w-3xl mx-auto pt-16">
                 <div class="lang-en fade-in-up">
                     <h2
-                        class="text-2xl font-bold mb-6 ai-gradient uppercase tracking-widest text-sm text-center"
+                        class="text-2xl font-bold mb-6 ai-gradient uppercase tracking-widest text-center"
                     >
-                        Main Research & Focus
+                        Main Research &amp; Focus
                     </h2>
                     <div
-                        class="glass p-8 rounded-3xl border-blue-500/20 relative overflow-hidden group"
+                        class="glass p-8 rounded-3xl border-blue-500/20! relative overflow-hidden group"
                     >
                         <div
                             class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition duration-700"
@@ -387,12 +471,12 @@
 
                 <div class="lang-ru fade-in-up">
                     <h2
-                        class="text-2xl font-bold mb-6 ai-gradient uppercase tracking-widest text-sm text-center"
+                        class="text-2xl font-bold mb-6 ai-gradient uppercase tracking-widest text-center"
                     >
                         Основной фокус и исследования
                     </h2>
                     <div
-                        class="glass p-8 rounded-3xl border-blue-500/20 relative overflow-hidden group"
+                        class="glass p-8 rounded-3xl border-blue-500/20! relative overflow-hidden group"
                     >
                         <div
                             class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition duration-700"
@@ -424,7 +508,7 @@
                 <h2 class="text-3xl font-bold mb-10 flex items-center">
                     <span class="lang-en">Tech Stack</span>
                     <span class="lang-ru">Технологии</span>
-                    <div class="h-px flex-1 bg-slate-800 ml-6"></div>
+                    <span class="h-px flex-1 bg-slate-800 ml-6" aria-hidden="true"></span>
                 </h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -563,9 +647,11 @@
                 </div>
 
                 <div
-                    class="mt-8 pt-6 border-t border-slate-800/30 text-center text-sm text-slate-600"
+                    class="mt-8 pt-6 border-t border-slate-800/30 text-center text-sm text-slate-400"
                 >
-                    <p>© 2026 goloveshko.github.io</p>
+                    <p>
+                        © <span id="year">2026</span> goloveshko.github.io
+                    </p>
                 </div>
             </div>
         </footer>

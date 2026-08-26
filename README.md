@@ -8,27 +8,42 @@ Personal website showcasing my projects, research in AI/ML, and software enginee
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, Tailwind CSS, Vanilla JS, Font Awesome
+- **Frontend:** HTML5, Tailwind CSS v4, Vanilla JS, Font Awesome
 - **Design:** Glassmorphism UI, custom CSS animations, dark theme
 - **Features:** Dual language support (EN / RU), fully responsive, smooth scrolling
-- **Dev Environment:** Docker & Nginx
+- **Tooling:** Node.js + Tailwind CLI, GitHub Actions, Docker & Nginx
 
 ---
 
 ## 🚀 Local Development
 
-You can easily run this project locally using Docker Compose:
+### Preview with Docker
 
 ```bash
-# Clone the repository
 git clone https://github.com/goloveshko/goloveshko.github.io.git
 cd goloveshko.github.io
-
-# Start with Docker
 docker compose up -d
 ```
 
 Open `http://localhost:8080` in your browser.
+
+### Rebuilding Tailwind CSS
+
+Styles are compiled from `css/input.css` (Tailwind CSS v4, CSS-first config)
+into `css/tailwind.css`. In production this file is rebuilt automatically by
+[GitHub Actions](.github/workflows/build-tailwind.yml) on every push to `main`.
+
+For local edits you'll need Node.js 20+:
+
+```bash
+npm install
+npm run build:css   # one-off minified build
+npm run watch:css   # watch mode — rebuilds on every change
+```
+
+> **Don't edit `css/tailwind.css` manually** — it's a generated artifact.
+> Change utility classes in `index.html` or theme tokens in `css/input.css`,
+> then rebuild.
 
 ---
 

@@ -108,8 +108,15 @@ body {
     }
 }
 
-/* Language toggle */
-.lang-ru {
+/*
+ * Language toggle: the language is set via a class on <html>;
+ * JS knows nothing about display — the layout stays intact.
+ * EN is the default.
+ */
+html:not(.lang-ru) .lang-ru,
+html:not(.lang-ru) .lang-text-ru,
+html.lang-ru .lang-en,
+html.lang-ru .lang-text-en {
     display: none;
 }
 
@@ -193,7 +200,10 @@ body {
     height: 8px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0;
     cursor: pointer;
+    appearance: none;
     transition: all 0.3s ease;
 }
 .nav-dot:hover,
@@ -201,11 +211,28 @@ body {
     background: #60a5fa;
     transform: scale(1.5);
 }
+.nav-dot:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 4px;
+}
 
 @media (max-width: 768px) {
     .nav-dots {
         display: none;
     }
+}
+
+/* Scroll hint button (at the bottom of the hero) */
+.scroll-hint {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.scroll-hint:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* Loading animation for hero */
@@ -225,4 +252,21 @@ body {
 .hero-animate-delay {
     animation: fadeIn 1s ease-out 0.3s forwards;
     opacity: 0;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .particle {
+        display: none;
+    }
 }

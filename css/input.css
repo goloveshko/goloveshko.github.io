@@ -1,0 +1,16 @@
+/*
+ * Tailwind CSS v4 — CSS-first configuration.
+ * tailwind.config.js is no longer needed and is ignored by v4 — the file can be deleted.
+ */
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/*
+ * Content detection: v4 scans the project from the root and respects
+ * .gitignore, so js/local-dev.js is excluded automatically. Explicit sources
+ * can be added via @source "../index.html";
+ */
