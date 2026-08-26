@@ -8,7 +8,7 @@ Personal website showcasing my projects, research in AI/ML, and software enginee
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, Tailwind CSS v4, Vanilla JS, Font Awesome
+- **Frontend:** HTML5, Tailwind CSS v4, Vanilla JS, inline SVG icons ([Font Awesome Free 7.3.1](https://fontawesome.com/license/free))
 - **Design:** Glassmorphism UI, custom CSS animations, dark theme
 - **Features:** Dual language support (EN / RU), fully responsive, smooth scrolling
 - **Tooling:** Node.js + Tailwind CLI, GitHub Actions, Docker & Nginx
