@@ -104,3 +104,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+
+// ===== Header controls =====
+document.getElementById("lang-toggle")?.addEventListener("click", toggleLang);
+
+const scrollHint = document.querySelector(".scroll-hint");
+if (scrollHint) {
+    scrollHint.addEventListener("click", () =>
+        scrollToSection(scrollHint.dataset.target),
+    );
+}
+
+// ===== Local dev helper (skipped in production) =====
+// Replaces the former <script src="local-dev.js" onerror=...> tag:
+// loaded dynamically only outside GitHub Pages, silently skipped if missing.
+if (!location.hostname.endsWith("github.io")) {
+    const script = document.createElement("script");
+    script.src = "js/local-dev.js";
+    script.onerror = () => script.remove();
+    document.head.append(script);
+}

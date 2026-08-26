@@ -172,7 +172,6 @@
         <div class="fixed top-6 right-6 z-50">
             <button
                 id="lang-toggle"
-                onclick="toggleLang()"
                 class="glass px-4 py-2 rounded-full hover:bg-white/10 transition text-sm font-medium"
                 aria-label="Toggle language"
             >
@@ -265,7 +264,7 @@
             <button
                 type="button"
                 class="scroll-hint absolute bottom-10 animate-bounce text-slate-500 hover:text-slate-300 transition"
-                onclick="scrollToSection('projects')"
+                data-target="projects"
                 aria-label="Scroll to projects section"
             >
                 <i class="fas fa-chevron-down"></i>
@@ -656,8 +655,7 @@
             </div>
         </footer>
 
-        <!-- Custom JS -->
+        <!-- Custom JS (js/local-dev.js is conditionally loaded from main.js) -->
         <script src="js/main.js"></script>
-        <script src="js/local-dev.js" onerror="this.remove()"></script>
     </body>
 </html>
