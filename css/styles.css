@@ -270,3 +270,8 @@ html.lang-ru .lang-text-en {
         display: none;
     }
 }
+
+/* Icon sprite: map the parent's text color (text-* utilities) to the icon fill */
+use {
+    fill: currentColor;
+}

@@ -50,6 +50,7 @@ jobs:
             --exclude 'README.md' \
             --exclude '.gitignore' \
             --exclude 'css/input.css' \
+            --exclude 'images/icons/' \
             ./ _site/
 
       - name: Configure Pages
