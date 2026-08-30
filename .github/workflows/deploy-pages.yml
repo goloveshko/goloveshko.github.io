@@ -44,13 +44,15 @@ jobs:
             --exclude '.git' \
             --exclude '.github' \
             --exclude '_site' \
-            --exclude 'package.json' \
-            --exclude 'package-lock.json' \
-            --exclude 'docker-compose.yml' \
-            --exclude 'README.md' \
-            --exclude '.gitignore' \
             --exclude 'css/input.css' \
             --exclude 'images/icons/' \
+            --exclude '.assetsignore' \
+            --exclude '.gitignore' \
+            --exclude 'package.json' \
+            --exclude 'package-lock.json' \
+            --exclude 'wrangler.jsonc' \
+            --exclude 'README.md' \
+            --exclude 'docker-compose.yml' \
             ./ _site/
 
       - name: Configure Pages
