@@ -1,6 +1,6 @@
 # ⚡ Goloveshko — Personal Portfolio Website
 
-Live website: **[goloveshko.github.io](https://goloveshko.github.io)**
+Live website: **[sergey.is-a.dev](https://sergey.is-a.dev)**
 
 Personal website showcasing my projects, research in AI/ML, and software engineering expertise.
 

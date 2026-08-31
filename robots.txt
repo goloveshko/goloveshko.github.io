@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://goloveshko.github.io/sitemap.xml
+Sitemap: https://sergey.is-a.dev/sitemap.xml
